@@ -2,7 +2,7 @@ package WWW::Search::Techbang;
 
 use strict;
 use warnings;
-use 5.10.1;
+use v5.10;
 use parent 'WWW::Search';
 use WWW::SearchResult;
 
@@ -10,6 +10,7 @@ our $VERSION = '0.01';
 
 sub _native_setup_search {
     my ($self, $native_query, $opts) = @_;
+
     $self->user_agent('non-robot');
     $self->{_next_url} = "http://www.techbang.com.tw/search?q=${native_query}&x=0&y=0";
 }
@@ -22,10 +23,17 @@ sub _parse_tree {
         my $hit = WWW::SearchResult->new;
         $hit->add_url("http://www.techbang.com.tw" . $tag->{href});
         $hit->title($tag->as_trimmed_text);
-        $hit->description(q{});
+
+        eval {
+            my @summary = $tag->parent->parent->right->find("p");
+            $hit->description($summary[0]->as_trimmed_text);
+            1;
+        } or do {
+            $hit->description('');
+        };
 
         $hit;
-    } $tree->look_down(_tag => "a", href => qr{^/posts/}, sub { $_[0]->parent->tag eq 'h1'});
+    } $tree->look_down(_tag => "a", href => qr{^/posts/}, sub { $_[0]->parent->tag eq 'h2'});
 
     $self->{cache} = \@hits;
 

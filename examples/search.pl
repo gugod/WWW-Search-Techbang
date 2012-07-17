@@ -7,5 +7,5 @@ my $searcher = WWW::Search->new('Techbang');
 
 $searcher->native_query(WWW::Search::escape_query(join(" ",@ARGV)));
 while (my $hit = $searcher->next_result()) {
-    print "@{[ $hit->title ]}\n    @{[ $hit->url ]}\n\n";
+    print "@{[ $hit->title ]}\n    @{[ $hit->description ]}\n    @{[ $hit->url ]}\n\n";
 }
