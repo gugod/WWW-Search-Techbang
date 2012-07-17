@@ -1,3 +1,4 @@
+.shipit
 Changes
 examples/search.pl
 inc/Module/Install.pm
@@ -17,8 +18,8 @@ MANIFEST			This list of files
 META.yml
 README
 t/00_compile.t
-t/search.t
 xt/01_podspell.t
 xt/02_perlcritic.t
 xt/03_pod.t
 xt/perlcriticrc
+xt/search.t
