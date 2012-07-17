@@ -1,4 +1,7 @@
 Revision history for Perl extension WWW::Search::Techbang
 
-0.01    Wed Jan 19 23:01:26 2011
-        - original version
+0.02: # Tue Jul 17 22:03:34 CEST 2012
+- fix the resutl building. broken due to server side HTML structure change.
+
+0.01: # Wed Jan 19 23:01:26 2011
+- original version

@@ -6,7 +6,7 @@ use v5.10;
 use parent 'WWW::Search';
 use WWW::SearchResult;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub _native_setup_search {
     my ($self, $native_query, $opts) = @_;
