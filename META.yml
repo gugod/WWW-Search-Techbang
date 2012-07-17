@@ -1,0 +1,28 @@
+---
+abstract: 'A module to search Techbang'
+author:
+  - 'Kang-min Liu <gugod@gugod.org>'
+build_requires:
+  ExtUtils::MakeMaker: 6.42
+configure_requires:
+  ExtUtils::MakeMaker: 6.42
+distribution_type: module
+generated_by: 'Module::Install version 1.00'
+license: mit
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: WWW-Search-Techbang
+no_index:
+  directory:
+    - examples
+    - inc
+    - t
+    - xt
+requires:
+  WWW::Search: 2.565
+  parent: 0
+  perl: 5.10.1
+resources:
+  license: http://opensource.org/licenses/mit-license.php
+version: 0.01
